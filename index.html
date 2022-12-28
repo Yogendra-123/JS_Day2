@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Day-2</title>
+    <style>
+        div{
+            margin: 0px 12px;
+        }
+        pre{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">JS Day2</h1>
+    <hr>
+    <div class="container">
+        <div>
+            <h3>1.What is creation phase and execution phase?</h3>
+            <p>compiler runs the entire code for 2 times before actually executing the code and generates GEC(Global Execution context) inside this we have creation phase and execution phase.<br>Creation Phase:<br>
+            <li>In the first run it picks all the function declarations and stores them in memory with the reference.</li><br><li>In Second run,it picks all the variables and assign them as undefined.</li><br>Execution Phase:
+            <li>Variables are asssigned with their values given the code.</li><br><li>Functions gets executed.</li> </p>
+        </div>
+        <hr>
+        <div>
+            
+            <h3>2.What are objects in javascript?</h3>
+            <p>In JS,objects are unordered collection of key:value pairs.Each key:value pair is called as a property.The key of a property can bea string and value of a property can be any value ,Ex:array,string,number,function.Javascript creates many ways to create a object.<br>
+            1.By using object litreal:{};<br>
+            <pre>
+                let person={
+                    name:"ram",
+                    age:23
+                };
+                console.log(person)
+                console.log(person.name)
+                console.log(person.age)
+            </pre>
+            2.By using new keyword<br>
+            <pre>
+                let person= new object({
+                    name:"sam",
+                    age:20
+                });
+                console.log(person)
+                console.log(person.name)
+                console.log(person.age)
+            </pre>
+            3.By using constructor function.<br>
+            </p>
+            <pre>
+                function person(){
+                    this.name="Shiv",
+                    this.age=22
+                    this.hobbies=['swim','reading books','browsing net']
+                }
+                const data = new person();
+                console.log(person)
+                console.log(person.name)
+                console.log(person.age)
+                console.log(person.hobbies[1])
+            </pre>
+        </div>
+        <hr>
+        <div>
+
+            <h3>3.What are function constructors?</h3>
+            <p>A constructor is a special function that creates and intializes an object instance of class.In JS constructor gets called when an object is created by using new keyword.we have multiple constructor Functions life arrow constructors for arrows, function constructors for functions and object constructors for objects etc.. when a constructor gets invoked the following sequence of operations takes place..<br><li>An empty object gets created</li><li>this keyword begins to refer to the new object and becomes to the current instance of the object.</li><li>New object is returned as the return value of the constructor.</li></p>
+            <pre>
+                function user(name,age){
+                    this.name=name;
+                    this.age=age;
+                }
+                var user1= new user('raja',22);
+                var user2=new user('deven',21);
+            </pre>
+        </div>
+        <hr>
+        <div>
+            <h3>4.What are callbacks?</h3>
+            <p>A callback is a function passed in another function as an argument.This function is invoked inside the outer function to complete an action.callbacks are used in Async Js. Ex:</p>
+            <pre>
+                function person1(myFunction){
+                    return myFunction();
+                }
+                function person2(){
+                    return ("Hi Everyone!!!")
+                }
+                let persondata=person1(person2);
+                console.log(persondata);
+            </pre>
+        </div>
+        <hr>
+        <div>
+            <h3>5.Explain prototypes</h3>
+            <p>In JS every object and function has a built in property called prototype.Prototype are the mechanism by which javascript objects inherit features from one another.The prototype itself an object and it will have its own prototype called prototype chain.The chain ends when we reach a prototype has null for its own prototype.In javascript Prototype property allows you to add new properties to object constructor.
+            </p>
+            <pre>
+                function Person(name,age){
+                    this.name = name,
+                    this.age = age
+                }
+                Person.prototype.nationality="Indian";
+                const peson1 = new Person("yogendra", "23")
+                console.log("name:"+ peson1.name,"age:"+peson1.age,peson1.nationality);
+            </pre>
+        </div>
+        <hr>
+        <div>
+            <h3>6.What is prototype chain</h3>
+            <p>The Prototype object has prototype of its own and so on until it reaches to null as its prototype.So,linking this with another is called Prototype Chain.Null has no prototype and it acts as final link in this prototype chain.</p>
+            <pre>
+                let fruits=["apple","mango","orange", 'banana', 'grapes']
+                console.log(fruits);
+            </pre>
+        </div>
+        <hr>
+        <div>
+            <h3>7.Give an example of inheritance using function constructor</h3>
+            <pre>
+                function employee(name,age,place){
+                    this.name=name,
+                    this.age=age,
+                    this.place=place
+                }
+                function employee2(gender){
+                    employee.call(this.name,this.age,this.place)
+                    this.gender=gender
+                }
+                let emp = new employee ("Siva",23,"Hyd")
+                let emp2= new employee2("syam",24,"BGLR","M")
+                console.log(emp);
+                console.log(emp2);
+            </pre>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
